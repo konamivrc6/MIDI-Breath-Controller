@@ -1,0 +1,39 @@
+################################################################################
+################################## LnWS Breath #################################
+################################################################################
+lnwsbreath.name=LnWS Breath Controller
+
+lnwsbreath.upload.tool=avrdude
+lnwsbreath.upload.protocol=avr109
+lnwsbreath.upload.maximum_size=28672
+lnwsbreath.upload.maximum_data_size=2560
+lnwsbreath.upload.speed=57600
+lnwsbreath.upload.disable_flushing=true
+lnwsbreath.upload.use_1200bps_touch=true
+lnwsbreath.upload.wait_for_upload_port=true
+
+lnwsbreath.bootloader.tool=avrdude
+lnwsbreath.bootloader.unlock_bits=0x3F
+lnwsbreath.bootloader.lock_bits=0x2F
+lnwsbreath.bootloader.low_fuses=0xFF
+lnwsbreath.bootloader.high_fuses=0xD8
+
+lnwsbreath.build.board=AVR_PROMICRO
+lnwsbreath.build.core=arduino:arduino
+lnwsbreath.build.variant=promicro
+lnwsbreath.build.mcu=atmega32u4
+lnwsbreath.build.usb_product="LnWS Breath Controller"
+lnwsbreath.build.vid=0x1b4f
+lnwsbreath.build.extra_flags={build.usb_flags}
+
+############################# Pro Micro 5V / 16MHz #############################
+lnwsbreath.menu.cpu.16MHzatmega32U4=ATmega32U4 (5V, 16 MHz)
+
+lnwsbreath.menu.cpu.16MHzatmega32U4.build.pid.0=0x9205
+lnwsbreath.menu.cpu.16MHzatmega32U4.build.pid.1=0x9206
+lnwsbreath.menu.cpu.16MHzatmega32U4.build.pid=0x9206
+lnwsbreath.menu.cpu.16MHzatmega32U4.build.f_cpu=16000000L
+
+lnwsbreath.menu.cpu.16MHzatmega32U4.bootloader.extended_fuses=0xCB
+lnwsbreath.menu.cpu.16MHzatmega32U4.bootloader.file=caterina/Caterina-promicro16.hex
+
