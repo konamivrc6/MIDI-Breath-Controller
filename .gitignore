@@ -1,0 +1,15 @@
+# ---- 第三方库的生成文档 ----
+# doxygen 生成的 HTML，不是源码，可随时重新生成
+libraries/*/docs/
+
+# ---- 操作系统 / 编辑器垃圾 ----
+Thumbs.db
+desktop.ini
+.DS_Store
+*~
+
+# ---- Arduino 编译产物 ----
+build/
+*.elf
+*.eep
+*.map

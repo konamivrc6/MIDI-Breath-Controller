@@ -1,9 +1,25 @@
 ################################################################################
 ################################## LnWS Breath #################################
 ################################################################################
+#
+# 用法：把本文件的内容追加到 Arduino AVR 核的 boards.txt 末尾 ——
+#       %LOCALAPPDATA%\Arduino15\packages\arduino\hardware\avr\<版本>\boards.txt
+#       追加后重启 Arduino IDE，开发板菜单里会出现 "LnWS Breath Controller"
+#
+# 说明：本定义本质上是「SparkFun Pro Micro 换了个 USB 设备名」，
+#       其余编译/上传参数与 Pro Micro 完全一致。
+#
+# 注意：
+#   * 下方有两处标注 [修正]，缺任一都会出问题
+#   * 不要点 Burn Bootloader —— Caterina-promicro16.hex 在官方核中不存在
+#   * Arduino AVR 核升级后 boards.txt 会被重置，需要重新追加本文件
+#
 lnwsbreath.name=LnWS Breath Controller
 
 lnwsbreath.upload.tool=avrdude
+# [修正] 缺这两行时 IDE 2.x 上传报 Property 'upload.tool.serial' is undefined
+lnwsbreath.upload.tool.serial=avrdude
+lnwsbreath.upload.tool.default=avrdude
 lnwsbreath.upload.protocol=avr109
 lnwsbreath.upload.maximum_size=28672
 lnwsbreath.upload.maximum_data_size=2560
@@ -19,8 +35,11 @@ lnwsbreath.bootloader.low_fuses=0xFF
 lnwsbreath.bootloader.high_fuses=0xD8
 
 lnwsbreath.build.board=AVR_PROMICRO
-lnwsbreath.build.core=arduino:arduino
-lnwsbreath.build.variant=promicro
+lnwsbreath.build.core=arduino
+# [修正] 官方 AVR 核里没有 promicro variant。
+#        Leonardo 与 Pro Micro 的引脚映射逐位相同
+#        (已核对 digital_pin_to_port_PGM / digital_pin_to_bit_mask_PGM 两张表)
+lnwsbreath.build.variant=leonardo
 lnwsbreath.build.mcu=atmega32u4
 lnwsbreath.build.usb_product="LnWS Breath Controller"
 lnwsbreath.build.vid=0x1b4f
@@ -36,4 +55,3 @@ lnwsbreath.menu.cpu.16MHzatmega32U4.build.f_cpu=16000000L
 
 lnwsbreath.menu.cpu.16MHzatmega32U4.bootloader.extended_fuses=0xCB
 lnwsbreath.menu.cpu.16MHzatmega32U4.bootloader.file=caterina/Caterina-promicro16.hex
-

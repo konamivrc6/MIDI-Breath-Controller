@@ -1,0 +1,13 @@
+# ---- 统一换行 ----
+# 仓库里存 LF，checkout 出来也是 LF。
+# 这会覆盖 core.autocrlf，所以无论谁 clone、在哪个系统上，结果都一致。
+# text=auto 让 git 自动识别二进制文件并跳过转换。
+* text=auto eol=lf
+
+# ---- 明确标记二进制 ----
+# 防止任何换行转换损坏这些文件（.eprj2 是 SQLite 数据库，尤其不能碰）
+*.blend  binary
+*.stl    binary
+*.zip    binary
+*.png    binary
+*.eprj2  binary
