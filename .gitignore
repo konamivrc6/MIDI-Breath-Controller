@@ -8,6 +8,10 @@ desktop.ini
 .DS_Store
 *~
 
+# ---- EasyEDA Pro 自动备份 ----
+# 打开工程时它自己生成的，不是设计源文件
+*_backup/
+
 # ---- Arduino 编译产物 ----
 build/
 *.elf
