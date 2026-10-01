@@ -207,8 +207,10 @@ void sendMidiCC(byte value) {
 
 // ==================== 数码管更新 ====================
 void updateDisplay(byte value) {
-  // 显示 3 位数，右对齐，不填充前导零
-  display.showNumberDec(value, false, 3, 0);
+  // 显示 4 位数，右对齐，不填充前导零
+  // length 必须给 4：库内部是 setSegments(digits, length, pos)，
+  // 只写 length 个位置。给 3 的话第 4 位永远不被写，屏幕上会空一格。
+  display.showNumberDec(value, false, 4, 0);
 }
 
 // ==================== 开关检测 ====================
